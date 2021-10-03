@@ -1,29 +1,37 @@
-//Longest Palindrome in a string
-#include<iostream>
-#include<string.h>
-#include<algorithm>
-using namespace std;
-int main()
-{
-	string str;
-	cin>>str;
-	int mxlen=1,i,j;
-	for(i=0;i<str.length();i++)
-	{
-	
-		for(j=i+1;j<str.length();j++)
-		{
-			string str1,str2;
-			str1=str.substr(i,j+1);
-			
-			str2=str1;
-			reverse(str1.begin(),str1.end());
-			if(str1==str2 && str1.length()>mxlen)
-			{
-				mxlen=str1.length();
-			}
-		}
-	}
-	cout<<"maxlen="<<mxlen;
-	return 0;
-}
+//Longest Palindrome substring
+//https://leetcode.com/problems/longest-palindromic-substring/submissions/
+
+class Solution {
+public:
+    string longestPalindrome(string str) {
+        int low=0,high=0,start=0,end=1;
+        for(int i=1;i<str.length();i++)
+        {
+            low=i-1;
+            high=i;
+            while(low>=0 && high<str.length() && str[low]==str[high])
+            {
+                if(high-low+1>end)
+                {
+                    start=low;
+                    end=high-low+1;
+                }
+                low--;
+                high++;
+            }
+            low=i-1;
+            high=i+1;
+            while(low>=0 && high<str.length() && str[low]==str[high])
+            {
+                if(high-low+1>end)
+                {
+                    start=low;
+                    end=high-low+1;
+                }
+                low--;
+                high++;
+            }
+        }
+        return str.substr(start,end);
+    }
+};
