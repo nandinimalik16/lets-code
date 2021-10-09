@@ -12,10 +12,7 @@ int countsub(int arr[],int n,int sum)
 	{
 		return 1;
 	}
-	if(n==0 && sum!=0)
-	{
-		return 0;
-	}
+	
 	for(i=0;i<=n;i++)
 	{
 		t[i][0]=1;
