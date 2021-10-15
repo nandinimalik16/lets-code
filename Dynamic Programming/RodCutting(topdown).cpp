@@ -4,6 +4,7 @@ using top down approach
 problem statement:Given a rod of length n inches and an array of prices that 
 includes prices of all pieces of size smaller than n. Determine the maximum value obtainable by 
 cutting up the rod and selling the pieces.
+Note:this problem is a variation of unbounded knapsack. It is exactly same as unbounded only difference is the way of asking.
 */
 
 
