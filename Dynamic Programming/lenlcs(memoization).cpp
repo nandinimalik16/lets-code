@@ -39,7 +39,7 @@ int main()
 	n=x.length();
 	m=y.length();
 	int l=lcs(x,y,n,m);
-	cout<<"Length of longest common string="<<l;
+	cout<<"Length of longest common subsequence="<<l;
 	
 	return 0;
 }

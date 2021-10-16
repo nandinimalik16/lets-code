@@ -1,4 +1,4 @@
-//length of longest common subsequence
+//length of longest common substring
 //top-down approach
 
 #include<iostream>
@@ -7,6 +7,7 @@ using namespace std;
 int lcs(string x,string y,int n,int m)
 {
 	int t[n+1][m+1],i,j;
+	int mx=0;
 	for(i=0;i<=n;i++)
 	{
 		t[i][0]=0;
@@ -22,14 +23,16 @@ int lcs(string x,string y,int n,int m)
 			if(x[i-1]==y[j-1])
 			{
 				t[i][j]=1+t[i-1][j-1];
+				mx=max(mx,t[i][j]);
 			}
 			else
 			{
-				t[i][j]=max(t[i-1][j],t[i][j-1]);
+				t[i][j]=0;
 			}
 		}
 	}
-	return t[n][m];
+	
+	return mx;
 }
 
 int main()
@@ -43,7 +46,7 @@ int main()
 	n=x.length();
 	m=y.length();
 	int l=lcs(x,y,n,m);
-	cout<<"Length of longest common subsequence="<<l;
+	cout<<"Length of longest common substring="<<l;
 
 	return 0;
 }
