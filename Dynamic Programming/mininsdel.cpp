@@ -39,21 +39,21 @@ vector<int> minlcs(string x,string y,int n,int m)
 		mp.push_back(n-m);
 		mp.push_back(0);
 		
-		return mp;
+		
 	}
 	else if(t[n][m]<m)
 	{
 		mp.push_back(n-t[n][m]);
 		mp.push_back(m-t[n][m]);
-	
-		return mp;
+		
 	}
 	else
 	{
 		mp.push_back(0);
 		mp.push_back(0);
-		return mp;
+		
 	}
+    return mp;
 }
 
 
