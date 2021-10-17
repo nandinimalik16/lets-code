@@ -71,7 +71,7 @@ int main()
 	n=x.length();
 	m=y.length();
 	string l=lcs(x,y,n,m);
-	cout<<"Length of longest common string="<<l;
+	cout<<"Longest common string="<<l;
 
 	return 0;
 }
