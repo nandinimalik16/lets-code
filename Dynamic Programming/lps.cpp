@@ -6,21 +6,18 @@
 #include<algorithm>
 using namespace std;
 
-int lps(string x,string y,int n,int m)
+int lps(string x,string y,int n)
 {
 	int t[n+1][m+1],i,j;
 	
 	for(i=0;i<=n;i++)
 	{
-		t[i][0]=0;
+		t[0][i]=t[i][0]=0;
 	}
-	for(i=1;i<=m;i++)
-	{
-		t[0][i]=0;
-	}
+	
 	for(i=1;i<=n;i++)
 	{
-		for(j=1;j<=m;j++)
+		for(j=1;j<=n;j++)
 		{
 			if(x[i-1]==y[j-1])
 			{
@@ -34,7 +31,7 @@ int lps(string x,string y,int n,int m)
 		}
 	}
 
-	return t[n][m];
+	return t[n][n];
 }
 
 int main()
@@ -46,8 +43,8 @@ int main()
 	y=x;
 	reverse(x.begin(),x.end());
 	n=x.length();
-	m=y.length();
-	int l=lps(x,y,n,m);
+	
+	int l=lps(x,y,n);
 	cout<<"Length of longest palindromic subsequence="<<l;
 
 	return 0;
