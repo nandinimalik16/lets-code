@@ -15,6 +15,7 @@ int lps(string x,string y,int n,int m)
 		t[i][0]=0;
 	}
 	for(i=1;i<=m;i++)
+	
 	{
 		t[0][i]=0;
 	}
